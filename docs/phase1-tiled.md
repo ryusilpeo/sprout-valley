@@ -35,8 +35,8 @@ public/assets/maps/farm.json   runtime map Phaser loads (generated; don't hand-e
 - **farm** (tilelayer): tilled soil where crops go (Phase 4 hooks in here).
 - **collision** (objectgroup): rectangles become static bodies. Right now it's
   a ring around the island; add rects over trees/house/etc. as you place them.
-- **spawns** (objectgroup): named points. `player_spawn` positions the camera
-  now and the real player in Phase 2.
+- **spawns** (objectgroup): named points. `player_spawn` is where the player
+  spawns (since Phase 2).
 
 ## How autotiling works here
 

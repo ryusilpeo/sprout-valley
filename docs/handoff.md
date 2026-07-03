@@ -37,18 +37,20 @@ the state transfer into Claude Code.
   loads it: renders layers, animates water (4-frame), turns the `collision`
   object layer into static bodies, centers camera on `spawns/player_spawn`.
   Full write-up: `docs/phase1-tiled.md`.
-- [ ] **Phase 2 — Player** (next). Real 4-direction walking from
-  `public/assets/characters/player/player.png` (48x48 frames, 4x4 grid: rows
-  = down/up/left/right, walk cycle), tool-use animations from
-  `player_actions.png`, arcade-physics collision against the Phase 1
-  collision bodies, camera follow. Replaces the placeholder `player_marker`
-  circle currently drawn in `BootScene.ts`.
-- [ ] Phase 3 — HUD (nine-slice panels, hearts, coins, mission tracker,
-  hotbar — largely already designed in an earlier iteration; needs porting
-  into this fresh codebase's conventions).
+- [x] **Phase 2 — Player**. `src/entities/Player.ts`: 4-direction walking
+  from `player.png` (rows pixel-verified: down/up/left/right — real rows, no
+  flipping), arcade-physics feet-band body colliding against the Phase 1
+  collision statics, camera follow. Placeholder marker removed. Tool-use
+  animations were deferred to Phase 4 (nothing uses tools until farming).
+  Full write-up: `docs/phase2-player.md`.
+- [ ] **Phase 3 — HUD** (next). Nine-slice panels, hearts, coins, mission
+  tracker, hotbar — largely already designed in an earlier iteration; needs
+  porting into this fresh codebase's conventions.
 - [ ] Phase 4 — Farming (hoe/water/plant/grow/harvest on the `farm` tile
   layer, crop growth stages from `assets/farming/crops.png` /
-  `crops_watered.png`).
+  `crops_watered.png`). Includes the tool-use animations from
+  `player_actions.png` (2x12 grid of 48x48, 2-frame action pairs — deferred
+  from Phase 2).
 - [ ] Phase 5 — Inventory & items. Phase 6 — Day cycle & save. Phase 7 —
   Animals & missions. Phase 8+ — economy, interiors, mining/fishing, seasons.
 
@@ -88,12 +90,14 @@ errors → git commit.
 
 ## Immediate next step
 
-Start **Phase 2 — Player**. Requirements once you begin:
-1. Load `player.png` as a 48x48 spritesheet (already loaded in `BootScene`).
-2. Build walk animations from the 4x4 grid (confirm row order against the
-   sheet — don't assume; check pixels if unsure).
-3. Arcade physics body, collide against the `collision` static group already
-   built in `MapScene.buildCollision()` (currently stored in
-   `this.registry.set('collision', statics)`).
-4. Camera follow instead of the current static `centerOn`.
-5. Remove the placeholder marker code once the real player renders.
+Start **Phase 3 — HUD**. Requirements once you begin:
+1. New `HudScene` running in parallel over `MapScene` (`scene.launch`), with
+   its own camera unaffected by the map camera's zoom/scroll.
+2. Nine-slice panels from `assets/ui/panels/dialog_9slice.png` (the 48x48
+   nine-slice workhorse — see docs/plan.md §2.3 ui/). An earlier iteration
+   already designed HudScene + NinePanel; port the design into this
+   codebase's conventions, don't copy-paste blindly.
+3. Hearts (`assets/ui/hud/hearts.png`), coin counter, mission tracker panel,
+   hotbar from `assets/ui/hud/inventory_blocks.png` / `inventory_sheet.png`.
+4. HUD is display-only this phase — inventory/mission data behind it arrives
+   in Phases 5/7; stub with static values.
