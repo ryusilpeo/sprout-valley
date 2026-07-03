@@ -1,0 +1,409 @@
+{
+  "$comment": "Phaser 3 asset index for the Sprout Lands Basic pack (by Cup Nooble). All art is 16x16-based pixel art. Load with pixelArt:true / roundPixels:true in your game config. Paths are relative to `basePath` (assumes the web root serves the `public/` folder). Duplicate spaced/underscored filenames were verified byte-identical and collapsed to the underscore version; identical twins are listed under `aliases`.",
+  "meta": {
+    "pack": "Sprout Lands - Basic Pack",
+    "author": "Cup Nooble",
+    "credit": "Assets -From: Sprout Lands -By: Cup Nooble",
+    "license": "Non-commercial. No NFT/AI-training use. Do not redistribute/resell the pack. Credit required.",
+    "links": {
+      "twitter": "https://twitter.com/Sprout_Lands",
+      "carrd": "https://cupnooble.carrd.co"
+    }
+  },
+  "config": {
+    "tileSize": 16,
+    "basePath": "assets/sprout",
+    "recommendedGameConfig": {
+      "pixelArt": true,
+      "roundPixels": true,
+      "antialias": false
+    },
+    "$note": "For crisp pixel art, set pixelArt:true (nearest-neighbor). Tilesets are also loaded as spritesheets so individual 16x16 tiles are addressable by frame index; for Tiled-based maps, use tileWidth/tileHeight = 16."
+  },
+  "loaderTypes": {
+    "image": "this.load.image(key, path)",
+    "spritesheet": "this.load.spritesheet(key, path, { frameWidth, frameHeight })",
+    "tileset": "this.load.image(key, path); then map.addTilesetImage(nameInTiled, key) OR use as spritesheet for manual tile placement"
+  },
+  "palette": {
+    "file": "Sprout Lands color pallet/Sprout Lands defautlt palette.png",
+    "previewFile": "Sprout Lands color pallet/Sprout Lands defautlt palette snip.PNG",
+    "width": 16,
+    "height": 7,
+    "structure": "16x8 grid arranged as twelve 8-step color ramps (each 16px row holds two ramps of 8 shades: columns 0-7 and 8-15). Row 6 holds white/outline utility colors.",
+    "keyColors": {
+      "outlineDark": "#713970",
+      "outlineShadow": "#504086",
+      "highlightWhite": "#F3F4E7",
+      "near_black": "#353738"
+    },
+    "ramps": {
+      "rose":       ["#713970", "#8A4A70", "#A35B70", "#AF6776", "#BD757E", "#D99A9A", "#E8B5AC", "#F3D8C5"],
+      "warmTan":    ["#6B4B5B", "#865161", "#A16159", "#BA7C54", "#D79E61", "#EEBA77", "#F2CF8C", "#F7EBAA"],
+      "olive":      ["#795E53", "#957A4B", "#B09643", "#BFA954", "#D4C169", "#EAE178", "#EEEE9B", "#F3F2C0"],
+      "leafGreen":  ["#566560", "#67835C", "#78A158", "#8DB15D", "#A4C263", "#C0D470", "#D2E077", "#E8EEAA"],
+      "tealGreen":  ["#505E77", "#5F7A79", "#6E967C", "#82A884", "#97BB8E", "#AED499", "#C2E09A", "#DFF0BB"],
+      "aquaBlue":   ["#4A588E", "#577297", "#658CA1", "#7BA6B4", "#8CBFC2", "#9BD4C3", "#B1E0BE", "#D6F1CD"],
+      "blue":       ["#4C468B", "#555793", "#5F699C", "#7180B1", "#8599C7", "#92B2D4", "#99C5DE", "#CBE0DE"],
+      "indigo":     ["#504086", "#5C4E92", "#685D9E", "#766DAA", "#867FB8", "#A09DD4", "#BCAFDE", "#DDD5DE"],
+      "purple":     ["#583F83", "#694A87", "#7B568C", "#90689F", "#A77BB3", "#C89DD1", "#D8B1E0", "#EBD6E0"],
+      "skinBrown":  ["#754C60", "#90625D", "#AA7959", "#B68962", "#C49A6C", "#DCB98A", "#E8CFA6", "#F3E5C2"],
+      "warmGray":   ["#645552", "#7B6762", "#8C7369", "#9D866F", "#B2A486", "#C4BC93", "#DED9AB", "#F0EFB9"],
+      "coolGray":   ["#353738", "#474A4B", "#545959", "#6B7470", "#818B83", "#9DA89A", "#C1C8B9", "#DCE0D2"]
+    }
+  },
+  "characters": {
+    "player": {
+      "file": "Characters/Basic Charakter Spritesheet.png",
+      "load": "spritesheet",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "description": "Main player character. 4x4 grid; each row is a facing direction, each column a 4-frame walk/idle cycle. Character is drawn small and centered in the 48x48 cell (leaves room for tool-use frames to line up with the actions sheet).",
+      "animations": {
+        "walk_down":  { "frames": [0, 1, 2, 3],    "frameRate": 8, "repeat": -1 },
+        "walk_up":    { "frames": [4, 5, 6, 7],    "frameRate": 8, "repeat": -1 },
+        "walk_right": { "frames": [8, 9, 10, 11],  "frameRate": 8, "repeat": -1 },
+        "walk_left":  { "frames": [12, 13, 14, 15], "frameRate": 8, "repeat": -1 },
+        "idle_down":  { "frames": [0], "frameRate": 1, "repeat": 0 }
+      },
+      "$note": "Row->direction mapping verified visually (row0 faces the camera/down, row1 faces away/up, rows2-3 are side profiles). 'left' can alternatively be produced by flipX on the right frames if you prefer."
+    },
+    "player_actions": {
+      "file": "Characters/Basic Charakter Actions.png",
+      "load": "spritesheet",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "columns": 2,
+      "rows": 12,
+      "frameCount": 24,
+      "description": "Tool-use / action poses for the player. Same 48x48 cell as the player sheet so frames register in place. 12 rows, each a 2-frame action animation (watering, hoeing, axing, digging, etc.).",
+      "animations": {
+        "action_0":  { "frames": [0, 1],   "frameRate": 8, "repeat": 0 },
+        "action_1":  { "frames": [2, 3],   "frameRate": 8, "repeat": 0 },
+        "action_2":  { "frames": [4, 5],   "frameRate": 8, "repeat": 0 },
+        "action_3":  { "frames": [6, 7],   "frameRate": 8, "repeat": 0 },
+        "action_4":  { "frames": [8, 9],   "frameRate": 8, "repeat": 0 },
+        "action_5":  { "frames": [10, 11], "frameRate": 8, "repeat": 0 },
+        "action_6":  { "frames": [12, 13], "frameRate": 8, "repeat": 0 },
+        "action_7":  { "frames": [14, 15], "frameRate": 8, "repeat": 0 },
+        "action_8":  { "frames": [16, 17], "frameRate": 8, "repeat": 0 },
+        "action_9":  { "frames": [18, 19], "frameRate": 8, "repeat": 0 },
+        "action_10": { "frames": [20, 21], "frameRate": 8, "repeat": 0 },
+        "action_11": { "frames": [22, 23], "frameRate": 8, "repeat": 0 }
+      },
+      "$note": "Row = 2*rowIndex, 2*rowIndex+1. Which row is which tool is not labeled in the source; assign meaningful anim keys (e.g. 'water','hoe','axe') once you match rows to your gameplay."
+    },
+    "cow": {
+      "file": "Characters/Free Cow Sprites.png",
+      "load": "spritesheet",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "columns": 3,
+      "rows": 2,
+      "frameCount": 6,
+      "usableFrames": [0, 1, 2, 3, 4],
+      "description": "Cow, 32x32 frames. 5 usable frames (last grid cell empty).",
+      "animations": {
+        "idle": { "frames": [0, 1, 2, 3, 4], "frameRate": 5, "repeat": -1 }
+      }
+    },
+    "chicken": {
+      "file": "Characters/Free Chicken Sprites.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "usableFrames": [0, 1, 2, 3, 4],
+      "description": "Chicken, 16x16 frames. ~5 usable frames for an idle/peck cycle.",
+      "animations": {
+        "idle": { "frames": [0, 1, 2, 3], "frameRate": 4, "repeat": -1 }
+      }
+    },
+    "egg_and_nest": {
+      "file": "Characters/Egg_And_Nest.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 4,
+      "rows": 1,
+      "frameCount": 4,
+      "description": "Egg + nest stages (empty nest, nest with egg, etc.), 16x16 each."
+    },
+    "tools_icons": {
+      "file": "Characters/Tools.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 6,
+      "rows": 6,
+      "frameCount": 36,
+      "description": "Tool & held-item icons (axe, hoe, watering can, pickaxe, sword, etc.) as 16x16 tiles. Use frame index to pick an icon."
+    }
+  },
+  "objects": {
+    "furniture": {
+      "file": "Objects/Basic_Furniture.png",
+      "aliases": ["Objects/Basic Furniture.png"],
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 9,
+      "rows": 6,
+      "frameCount": 54,
+      "description": "Basic furniture / interior props laid out on a 16x16 grid. Multi-tile pieces span several adjacent cells."
+    },
+    "grass_biome_decor": {
+      "file": "Objects/Basic_Grass_Biom_things.png",
+      "aliases": ["Objects/Basic Grass Biom things 1.png"],
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 9,
+      "rows": 5,
+      "frameCount": 45,
+      "description": "Outdoor grassland decorations: bushes, rocks, stumps, signs, flowers, etc."
+    },
+    "plants": {
+      "file": "Objects/Basic_Plants.png",
+      "aliases": ["Objects/Basic Plants.png"],
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 6,
+      "rows": 2,
+      "frameCount": 12,
+      "description": "Crop growth stages (seed -> sprout -> mature) across a row-based sequence."
+    },
+    "tools_and_materials": {
+      "file": "Objects/Basic_tools_and_meterials.png",
+      "aliases": ["Objects/Basic tools and meterials.png"],
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 3,
+      "rows": 2,
+      "frameCount": 6,
+      "description": "Ground material/resource items (wood, stone, etc.), 16x16."
+    },
+    "chest": {
+      "file": "Objects/Chest.png",
+      "load": "spritesheet",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "columns": 5,
+      "rows": 2,
+      "frameCount": 10,
+      "description": "Chest, 48x48 frames. Two rows = open/close animation (and/or a second color variant).",
+      "animations": {
+        "open_top":    { "frames": [0, 1, 2, 3, 4], "frameRate": 10, "repeat": 0 },
+        "open_bottom": { "frames": [5, 6, 7, 8, 9], "frameRate": 10, "repeat": 0 }
+      }
+    },
+    "egg_item": {
+      "file": "Objects/Egg_item.png",
+      "aliases": ["Objects/Egg item.png"],
+      "load": "image",
+      "width": 16,
+      "height": 16,
+      "description": "Single egg pickup item, 16x16."
+    },
+    "milk_and_grass_item": {
+      "file": "Objects/Simple_Milk_and_grass_item.png",
+      "aliases": ["Objects/Simple Milk and grass item.png"],
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 4,
+      "rows": 1,
+      "frameCount": 4,
+      "description": "Milk bottle + cut-grass/hay pickup items, 16x16 each."
+    },
+    "chicken_house": {
+      "file": "Objects/Free_Chicken_House.png",
+      "load": "image",
+      "width": 48,
+      "height": 48,
+      "gridTiles": { "columns": 3, "rows": 3 },
+      "description": "Chicken coop building, 48x48 (3x3 tiles). Place as a single image."
+    },
+    "paths": {
+      "file": "Objects/Paths.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "autotile": true,
+      "description": "Dirt/gravel path autotile set (16 tiles, bitmask/blob arrangement for connecting path pieces)."
+    },
+    "wood_bridge": {
+      "file": "Objects/Wood_Bridge.png",
+      "aliases": ["Objects/Wood Bridge.png"],
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 5,
+      "rows": 3,
+      "frameCount": 15,
+      "description": "Wooden bridge pieces (ends, middle, horizontal/vertical), 16x16 tiles."
+    }
+  },
+  "tilesets": {
+    "grass": {
+      "file": "Tilesets/Grass.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 11,
+      "rows": 7,
+      "frameCount": 77,
+      "autotile": true,
+      "description": "Grass ground autotile set with plateau/edge transitions, plus loose grass-tuft decorations. Bitmask/blob layout."
+    },
+    "hills": {
+      "file": "Tilesets/Hills.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 11,
+      "rows": 9,
+      "frameCount": 99,
+      "autotile": true,
+      "description": "Hill / cliff elevation autotile set (raised ground edges, ramps, corners)."
+    },
+    "water": {
+      "file": "Tilesets/Water.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 4,
+      "rows": 1,
+      "frameCount": 4,
+      "animated": true,
+      "description": "Animated water surface, 4 frames.",
+      "animations": {
+        "flow": { "frames": [0, 1, 2, 3], "frameRate": 6, "repeat": -1 }
+      }
+    },
+    "tilled_dirt": {
+      "file": "Tilesets/Tilled_Dirt.png",
+      "aliases": ["Tilesets/Tilled Dirt.png (DIFFERENT: 128x128 8x8 variant, not identical)"],
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 11,
+      "rows": 7,
+      "frameCount": 77,
+      "autotile": true,
+      "description": "Tilled soil autotile set (dry + watered variants). Bitmask/blob layout for connecting farmed patches.",
+      "$note": "'Tilled Dirt.png' (with a space) is a SEPARATE 128x128 (8x8) file, NOT identical to this one - see tilled_dirt_legacy."
+    },
+    "tilled_dirt_legacy": {
+      "file": "Tilesets/Tilled Dirt.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 8,
+      "rows": 8,
+      "frameCount": 64,
+      "autotile": true,
+      "description": "Older/alternate 128x128 tilled-soil layout (8x8). Kept for compatibility; prefer `tilled_dirt` unless you need this exact arrangement."
+    },
+    "tilled_dirt_v2": {
+      "file": "Tilesets/Tilled_Dirt_v2.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 11,
+      "rows": 7,
+      "frameCount": 77,
+      "autotile": true,
+      "description": "Revised tilled-soil autotile set (v2)."
+    },
+    "tilled_dirt_wide": {
+      "file": "Tilesets/Tilled_Dirt_Wide.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 11,
+      "rows": 7,
+      "frameCount": 77,
+      "autotile": true,
+      "description": "Wide-format tilled-soil autotile variant."
+    },
+    "tilled_dirt_wide_v2": {
+      "file": "Tilesets/Tilled_Dirt_Wide_v2.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 11,
+      "rows": 7,
+      "frameCount": 77,
+      "autotile": true,
+      "description": "Wide-format tilled-soil autotile variant (v2)."
+    },
+    "fences": {
+      "file": "Tilesets/Fences.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "autotile": true,
+      "description": "Fence pieces (posts, horizontal/vertical rails, corners, gates), 16 tiles."
+    },
+    "doors": {
+      "file": "Tilesets/Doors.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 1,
+      "rows": 4,
+      "frameCount": 4,
+      "description": "Door tiles (a full door spans 2 vertical tiles; sheet holds door variants / open-close frames)."
+    },
+    "wooden_house": {
+      "file": "Tilesets/Wooden House.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 7,
+      "rows": 5,
+      "frameCount": 35,
+      "description": "Complete wooden house building tiles (walls + roof combined), 16x16."
+    },
+    "wooden_house_roof": {
+      "file": "Tilesets/Wooden_House_Roof_Tilset.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 7,
+      "rows": 5,
+      "frameCount": 35,
+      "description": "Wooden house roof-only tileset (edges, ridges, corners) for building custom rooftops."
+    },
+    "wooden_house_walls": {
+      "file": "Tilesets/Wooden_House_Walls_Tilset.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 5,
+      "rows": 3,
+      "frameCount": 15,
+      "description": "Wooden house wall-only tileset (wall body, windows, corners)."
+    }
+  },
+  "references": {
+    "$comment": "Documentation/reference images only - do NOT load these into the game.",
+    "bitmask_reference_1": { "file": "Tilesets/Bitmask references 1.png", "width": 480, "height": 256, "description": "Autotile bitmask value reference chart (page 1)." },
+    "bitmask_reference_2": { "file": "Tilesets/Bitmask references 2.png", "width": 480, "height": 256, "description": "Autotile bitmask value reference chart (page 2)." },
+    "bitmask_reference_gif": { "file": "Tilesets/Bitmask references gif.gif", "width": 540, "height": 540, "description": "Animated demo of how bitmask autotiling resolves." }
+  }
+}

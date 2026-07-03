@@ -1,0 +1,213 @@
+{
+  "$comment": "Phaser 3 asset index for the Sprout Lands 'Early Access' content (by Cup Nooble): Dungeon Pack, Ocean Pack, Plant update 2, Sprout winter, and Village pack. All art is 16x16-based unless a larger frame is noted. Paths relative to `basePath`. Frame sizes marked with a $note were inferred and should be confirmed in an editor / against the .gif previews before shipping animations.",
+  "meta": {
+    "pack": "Sprout Lands - Early Access",
+    "author": "Cup Nooble",
+    "license": "Non-commercial. No NFT/AI use. Do not redistribute/resell. Credit required.",
+    "status": "Experimental / work-in-progress content; layouts less standardized than the Basic pack."
+  },
+  "config": {
+    "basePath": "assets/sprout/Early Access",
+    "tileSize": 16,
+    "recommendedGameConfig": { "pixelArt": true, "roundPixels": true }
+  },
+  "dungeonPack": {
+    "enemies": {
+      "bat": {
+        "file": "Dungeon Pack/enemies/bat_animations.png",
+        "load": "spritesheet",
+        "frameWidth": 48,
+        "frameHeight": 32,
+        "columns": 4,
+        "rows": 2,
+        "frameCount": 8,
+        "preview": "Dungeon Pack/enemies/bat.gif",
+        "description": "Bat enemy animation frames.",
+        "$note": "Frame size approximate (48x32, 4x2). Confirm with bat.gif (64x64 preview)."
+      },
+      "small_bat": {
+        "file": "Dungeon Pack/enemies/small_bat_animations.png",
+        "load": "spritesheet",
+        "frameWidth": 48,
+        "frameHeight": 32,
+        "columns": 4,
+        "rows": 2,
+        "frameCount": 8,
+        "preview": "Dungeon Pack/enemies/small bat.gif",
+        "description": "Smaller bat enemy animation frames.",
+        "$note": "Frame size approximate; confirm with 'small bat.gif'."
+      },
+      "green_slime": {
+        "file": "Dungeon Pack/enemies/small_green_slime_animations.png",
+        "load": "spritesheet",
+        "width": 456,
+        "height": 304,
+        "frameWidth": 38,
+        "frameHeight": 38,
+        "columns": 12,
+        "rows": 8,
+        "description": "Green slime enemy - multiple animations (idle squish, hop, etc.) laid out irregularly.",
+        "$note": "IRREGULAR layout: 456x304 does not divide on a clean 16px grid. 38px is a best-guess uniform frame; rows likely hold different-length animations. Verify frame boundaries in an image editor before defining anims."
+      }
+    },
+    "tiles": {
+      "ground_dirt_orange":      { "file": "Dungeon Pack/tiles/ground_dirt_orange.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 11, "rows": 11, "frameCount": 121, "autotile": true, "description": "Orange dungeon dirt floor autotile set." },
+      "ground_dirt_orange_dark": { "file": "Dungeon Pack/tiles/ground_dirt_orange_dark.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 11, "rows": 11, "frameCount": 121, "autotile": true, "description": "Darker orange dungeon dirt floor autotile set." },
+      "ground_hole":             { "file": "Dungeon Pack/tiles/ground_dirt_orange_hole.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 4, "rows": 1, "frameCount": 4, "description": "Pit/hole tiles for orange dirt floor." },
+      "ground_hole_darker":      { "file": "Dungeon Pack/tiles/ground_dirt_orange_darker_hole.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 4, "rows": 1, "frameCount": 4, "description": "Pit/hole tiles for darker orange dirt floor." },
+      "dungeon_walls":           { "file": "Dungeon Pack/tiles/Dungeon_walls.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 12, "rows": 22, "frameCount": 264, "description": "Dungeon wall tileset (edges, corners, caps)." },
+      "walls_decor_gates":       { "file": "Dungeon Pack/tiles/dungeon_walls_decor_gates.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 7, "rows": 7, "frameCount": 49, "description": "Wall decorations and gate tiles." },
+      "dungeon_props":           { "file": "Dungeon Pack/tiles/Dungeon_probs.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 8, "rows": 4, "frameCount": 32, "description": "Dungeon props (pots, bones, torches, etc.)." },
+      "dungeon_items":           { "file": "Dungeon Pack/tiles/dungeon_items.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 5, "rows": 3, "frameCount": 15, "description": "Dungeon pickup items." },
+      "carts":                   { "file": "Dungeon Pack/tiles/Carts.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 3, "rows": 2, "frameCount": 6, "description": "Mine cart tiles." },
+      "rails":                   { "file": "Dungeon Pack/tiles/Rails.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 4, "rows": 3, "frameCount": 12, "description": "Mine cart rail tiles (straights, corners)." },
+      "rocks":                   { "file": "Dungeon Pack/tiles/Rocks.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 4, "rows": 4, "frameCount": 16, "description": "Breakable rocks / ore." },
+      "switch":                  { "file": "Dungeon Pack/tiles/switch.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 3, "rows": 1, "frameCount": 3, "description": "Lever/switch states." }
+    }
+  },
+  "oceanPack": {
+    "swimming": {
+      "file": "Ocean Pack/swimming.png",
+      "load": "spritesheet",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "columns": 8,
+      "rows": 8,
+      "frameCount": 64,
+      "description": "Player swimming animation (same 48x48 cell as the Basic-pack player). Rows are directions/states, columns are frames.",
+      "$note": "48x48 confirmed. Map rows to directions similar to the base player sheet; each row has up to 8 frames."
+    },
+    "fishing_animation_side":  { "file": "Ocean Pack/fishing animation side.png", "load": "spritesheet", "width": 1536, "height": 288, "frameWidth": 96, "frameHeight": 96, "columns": 16, "rows": 3, "description": "Player fishing animation, side view.", "$note": "Large sheet (1536x288). Frame size UNCONFIRMED - candidates are 96x96 (16x3) or 48x48 (32x6). Verify before use." },
+    "fishing_animation_front": { "file": "Ocean Pack/fishing animation front.png", "load": "spritesheet", "width": 1536, "height": 288, "frameWidth": 96, "frameHeight": 96, "columns": 16, "rows": 3, "description": "Player fishing animation, front view.", "$note": "Frame size UNCONFIRMED (see fishing_animation_side)." },
+    "fishing_animation_back":  { "file": "Ocean Pack/fishing animation back.png", "load": "spritesheet", "width": 1536, "height": 288, "frameWidth": 96, "frameHeight": 96, "columns": 16, "rows": 3, "description": "Player fishing animation, back view.", "$note": "Frame size UNCONFIRMED (see fishing_animation_side)." },
+    "fishing_splash_and_rod":  { "file": "Ocean Pack/fishing water splash frames and rod.png", "load": "spritesheet", "width": 192, "height": 240, "frameWidth": 48, "frameHeight": 48, "columns": 4, "rows": 5, "description": "Water splash frames + fishing rod.", "$note": "48x48 grid assumed; verify." },
+    "fishing_rod":             { "file": "Ocean Pack/fishing_rod.png", "load": "image", "width": 16, "height": 16, "description": "Fishing rod icon." },
+    "fishing_rod_2":           { "file": "Ocean Pack/fishing_rod_2.png", "load": "image", "width": 16, "height": 16, "description": "Fishing rod icon variant." },
+    "fish_sprites":            { "file": "Ocean Pack/Fish Sprites.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 10, "rows": 5, "frameCount": 50, "description": "Catchable fish icons, 16x16 each." },
+    "big_fish_swim":           { "file": "Ocean Pack/big fish 2 swimming in cirkels.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 15, "rows": 1, "frameCount": 15, "description": "Big fish swimming-in-circles animation (15 frames).", "animations": { "swim": { "frames": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14], "frameRate": 8, "repeat": -1 } } },
+    "medium_fish_swim":        { "file": "Ocean Pack/mediuml fish.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 15, "rows": 1, "frameCount": 15, "description": "Medium fish swim animation (15 frames)." },
+    "small_fish_swim":         { "file": "Ocean Pack/small fish.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 15, "rows": 1, "frameCount": 15, "description": "Small fish swim animation (15 frames)." }
+  },
+  "plantUpdate2": {
+    "bee": {
+      "bee":         { "file": "Plant update 2/Bee/bee_spritesheet.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 8, "rows": 1, "frameCount": 8, "description": "Bee flight animation (8 frames).", "animations": { "fly": { "frames": [0,1,2,3,4,5,6,7], "frameRate": 12, "repeat": -1 } } },
+      "small_bee":   { "file": "Plant update 2/Bee/small_bee_spritesheet.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 8, "rows": 1, "frameCount": 8, "description": "Small bee flight animation (8 frames)." },
+      "beehive":     { "file": "Plant update 2/Bee/beehive.png", "load": "image", "width": 32, "height": 32, "description": "Beehive object (32x32)." },
+      "small_beehive": { "file": "Plant update 2/Bee/small_beehive.png", "load": "image", "width": 16, "height": 32, "description": "Small beehive object (16x32)." },
+      "honey_items": { "file": "Plant update 2/Bee/bread_jam_honey_items.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 4, "rows": 4, "frameCount": 16, "description": "Bread / jam / honey food items." }
+    },
+    "frog": {
+      "frog":  { "file": "Plant update 2/frog/frog_spritesheet.png", "load": "spritesheet", "frameWidth": 32, "frameHeight": 32, "columns": 7, "rows": 3, "frameCount": 21, "description": "Frog animation (idle/hop/tongue), 32x32 frames.", "$note": "32x32, 7x3 confirmed visually; individual rows are separate animations." },
+      "frog2": { "file": "Plant update 2/frog/frog_spritesheet2.png", "load": "spritesheet", "frameWidth": 32, "frameHeight": 32, "columns": 7, "rows": 3, "frameCount": 21, "description": "Frog animation variant 2." }
+    },
+    "furniture": {
+      "oak_chest":    { "file": "Plant update 2/Furniture/Oak_Chest.png", "load": "spritesheet", "frameWidth": 32, "frameHeight": 32, "columns": 5, "rows": 2, "frameCount": 10, "description": "Oak chest open/close animation (32x32).", "animations": { "open": { "frames": [0,1,2,3,4], "frameRate": 10, "repeat": 0 } } },
+      "pine_chest":   { "file": "Plant update 2/Furniture/Pine_Chest.png", "load": "spritesheet", "frameWidth": 32, "frameHeight": 32, "columns": 5, "rows": 2, "frameCount": 10, "description": "Pine chest open/close animation." },
+      "birch_chest":  { "file": "Plant update 2/Furniture/Birch_Chest.png", "load": "spritesheet", "frameWidth": 32, "frameHeight": 32, "columns": 5, "rows": 2, "frameCount": 10, "description": "Birch chest open/close animation." },
+      "cherry_chest": { "file": "Plant update 2/Furniture/Cherry_Chest.png", "load": "spritesheet", "frameWidth": 32, "frameHeight": 32, "columns": 5, "rows": 2, "frameCount": 10, "description": "Cherry chest open/close animation." },
+      "silver_chest": { "file": "Plant update 2/Furniture/Silver_Chest.png", "load": "spritesheet", "frameWidth": 32, "frameHeight": 32, "columns": 5, "rows": 2, "frameCount": 10, "description": "Silver chest open/close animation." },
+      "golden_chest": { "file": "Plant update 2/Furniture/Golden_Chest.png", "load": "spritesheet", "frameWidth": 32, "frameHeight": 32, "columns": 5, "rows": 2, "frameCount": 10, "description": "Golden chest open/close animation." },
+      "wooden_furniture":       { "file": "Plant update 2/Furniture/new Wooden Furniture.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 15, "rows": 8, "frameCount": 120, "description": "New wooden furniture tileset (tables, beds, shelves, etc.)." },
+      "wooden_furniture_items": { "file": "Plant update 2/Furniture/new Wooden Furniture items.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 12, "rows": 5, "frameCount": 60, "description": "Small wooden furniture item icons." }
+    },
+    "crops": {
+      "farming_plants_v2":         { "file": "Plant update 2/Farming Plants v2.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 7, "rows": 33, "frameCount": 231, "description": "Crop growth stages v2 (dry). Each column is a crop type; each row a growth stage." },
+      "farming_plants_v2_watered": { "file": "Plant update 2/Farming Plants v2 watered.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 7, "rows": 33, "frameCount": 231, "description": "Crop growth stages v2 (watered soil variant)." },
+      "farming_plants_items_v2":   { "file": "Plant update 2/Farming Plants items v2.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 5, "rows": 14, "frameCount": 70, "description": "Harvested crop item icons v2." }
+    },
+    "biomes": {
+      "birch_wood":              { "file": "Plant update 2/Birch wood Biom.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 10, "rows": 4, "frameCount": 40, "description": "Birch wood biome decorations (trees, foliage)." },
+      "birch_wood_water_plants": { "file": "Plant update 2/Birch wood Biom water plants.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 9, "rows": 2, "frameCount": 18, "description": "Birch biome water plants." },
+      "cherry_blossom":              { "file": "Plant update 2/Cherry Blossom Biom.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 10, "rows": 5, "frameCount": 50, "description": "Cherry blossom biome decorations." },
+      "cherry_blossom_water_plants": { "file": "Plant update 2/Cherry Blossom Biom water plants.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 6, "rows": 2, "frameCount": 12, "description": "Cherry blossom biome water plants." },
+      "pine_tree":              { "file": "Plant update 2/Pine Tree Biome.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 10, "rows": 4, "frameCount": 40, "description": "Pine tree biome decorations." },
+      "pine_tree_water_plants": { "file": "Plant update 2/Pine Tree Biome water plants.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 9, "rows": 2, "frameCount": 18, "description": "Pine biome water plants." },
+      "trees_stumps_bushes_v2": { "file": "Plant update 2/Trees, stumps and bushes v2.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 12, "rows": 8, "frameCount": 96, "description": "Trees, stumps and bushes v2." },
+      "wood_n_shrooms":         { "file": "Plant update 2/wood n shroms.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 6, "rows": 5, "frameCount": 30, "description": "Logs and mushrooms." }
+    },
+    "groundTilesets": {
+      "$note": "Layered grass autotile sets, 176x400 (11x25 tiles of 16px) unless noted. 'blue_tint' variants are recolors. Grass_Tile_layers2 is 160x400 (10x25).",
+      "grass_layers":            { "file": "Plant update 2/Ground tilesets/Grass_Tile_Layers.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 11, "rows": 25, "frameCount": 275, "autotile": true, "description": "Layered grass autotile set." },
+      "grass_layers2":           { "file": "Plant update 2/Ground tilesets/Grass_Tile_layers2.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 10, "rows": 25, "frameCount": 250, "autotile": true, "description": "Layered grass autotile set 2." },
+      "grass_layers3":           { "file": "Plant update 2/Ground tilesets/Grass_Tile_layers3.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 11, "rows": 25, "frameCount": 275, "autotile": true, "description": "Layered grass autotile set 3." },
+      "grass_layers4":           { "file": "Plant update 2/Ground tilesets/Grass_Tile_layers4.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 11, "rows": 25, "frameCount": 275, "autotile": true, "description": "Layered grass autotile set 4." },
+      "blue_tint_grass_layers":  { "file": "Plant update 2/Ground tilesets/blue_tint_Grass_Tile_Layers.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 11, "rows": 25, "frameCount": 275, "autotile": true, "description": "Blue-tinted layered grass autotile set." },
+      "blue_tint_grass_layers2": { "file": "Plant update 2/Ground tilesets/blue_tint_Grass_Tile_Layers2.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 11, "rows": 25, "frameCount": 275, "autotile": true, "description": "Blue-tinted layered grass autotile set 2." },
+      "blue_tint_grass_layers3": { "file": "Plant update 2/Ground tilesets/blue_tint_Grass_Tile_Layers3.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 11, "rows": 25, "frameCount": 275, "autotile": true, "description": "Blue-tinted layered grass autotile set 3." },
+      "blue_tint_grass_layers4": { "file": "Plant update 2/Ground tilesets/blue_tint_Grass_Tile_Layers4.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 11, "rows": 25, "frameCount": 275, "autotile": true, "description": "Blue-tinted layered grass autotile set 4." }
+    },
+    "picnic": {
+      "basket":  { "file": "Plant update 2/piknik/Piknik basket.png", "load": "image", "width": 16, "height": 16, "description": "Picnic basket object." },
+      "blanket": { "file": "Plant update 2/piknik/Piknik blanket.png", "load": "image", "width": 48, "height": 48, "description": "Picnic blanket (48x48, 3x3 tiles)." },
+      "foods":   { "file": "Plant update 2/piknik/piknik_foods.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 7, "rows": 2, "frameCount": 14, "description": "Picnic food items." }
+    }
+  },
+  "sproutWinter": {
+    "campfire":         { "file": "Sprout winter/campfire.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 7, "rows": 3, "frameCount": 21, "description": "Campfire (build/burn animation).", "$note": "16px grid assumed; the fire portion animates - verify which frames form the loop." },
+    "fire_animation":   { "file": "Sprout winter/fire animation.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 16, "rows": 1, "frameCount": 16, "description": "Fire flame animation (16 frames).", "animations": { "burn": { "frames": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], "frameRate": 12, "repeat": -1 } }, "source": "Sprout winter/fire aseprite file.aseprite" },
+    "christmas_tree":   { "file": "Sprout winter/christmas tree.png", "load": "spritesheet", "width": 384, "height": 64, "frameWidth": 64, "frameHeight": 64, "columns": 6, "rows": 1, "description": "Christmas tree (decorating stages / light animation).", "$note": "Frame size approximate (64x64, 6 frames); could be narrower. Source: 'christmas tree aseprite file.aseprite'." },
+    "present_animation": { "file": "Sprout winter/present animation aseprite file.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 10, "rows": 1, "frameCount": 10, "description": "Present open animation (10 frames).", "source": "Sprout winter/present animation aseprite file.aseprite" },
+    "present_variants": {
+      "$comment": "Static/animated present color variants, each 160x16 (10 frames of 16x16).",
+      "present_green":   { "file": "Sprout winter/present green.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 10, "rows": 1, "frameCount": 10, "description": "Green present." },
+      "present_green_2": { "file": "Sprout winter/present green 2.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 10, "rows": 1, "frameCount": 10, "description": "Green present variant 2." },
+      "present_red":     { "file": "Sprout winter/present red.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 10, "rows": 1, "frameCount": 10, "description": "Red present." },
+      "present_red_2":   { "file": "Sprout winter/present red 2.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 10, "rows": 1, "frameCount": 10, "description": "Red present variant 2." },
+      "present_red_3":   { "file": "Sprout winter/present red 3.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 10, "rows": 1, "frameCount": 10, "description": "Red present variant 3." }
+    },
+    "snowflakes":       { "file": "Sprout winter/snomwflakes.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 1, "rows": 3, "frameCount": 3, "description": "Falling snowflake animation (3 frames)." },
+    "ice_tiles":        { "file": "Sprout winter/ice tiles.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 4, "rows": 3, "frameCount": 12, "autotile": true, "description": "Ice ground autotile set." },
+    "snow_tiles_1":     { "file": "Sprout winter/snow tiles 1.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 11, "rows": 25, "frameCount": 275, "autotile": true, "description": "Snow ground layered autotile set 1 (same layout as grass layers)." },
+    "snow_tiles_2":     { "file": "Sprout winter/snow tiles 2.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 11, "rows": 25, "frameCount": 275, "autotile": true, "description": "Snow ground layered autotile set 2." },
+    "winter_items":     { "file": "Sprout winter/winter items.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 2, "rows": 4, "frameCount": 8, "description": "Winter item icons." },
+    "winter_sprites":   { "file": "Sprout winter/winter sprites.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 15, "rows": 9, "frameCount": 135, "description": "Winter decorations / props sheet." },
+    "sourceFiles": {
+      "$comment": "Aseprite source files - editing only, not loadable game assets.",
+      "christmas_tree_aseprite": "Sprout winter/christmas tree aseprite file.aseprite",
+      "fire_aseprite": "Sprout winter/fire aseprite file.aseprite",
+      "present_animation_aseprite": "Sprout winter/present animation aseprite file.aseprite"
+    }
+  },
+  "villagePack": {
+    "$note": "House PNGs are full building images - load as images, not spritesheets. Each building comes in variants: base, _with_door, _with_grass, _with_door_grass, and _shadow (drop shadow). The 288x80 'grey brick' files contain a ROW of multiple house color variants side by side.",
+    "houses": {
+      "grey_brick": {
+        "base":          { "file": "Village pack/houses/Grey brick house/grey_brick_houses.png", "load": "image", "width": 288, "height": 80, "description": "Grey brick houses (row of color variants)." },
+        "with_door":     { "file": "Village pack/houses/Grey brick house/grey_brick_houses_with_doors.png", "load": "image", "width": 288, "height": 80, "description": "Grey brick houses with doors." },
+        "with_grass":    { "file": "Village pack/houses/Grey brick house/grey_brick_houses_with_grass.png", "load": "image", "width": 288, "height": 80, "description": "Grey brick houses with grass base." },
+        "with_door_grass": { "file": "Village pack/houses/Grey brick house/grey_brick_houses_with_doors_grass.png", "load": "image", "width": 288, "height": 80, "description": "Grey brick houses with doors + grass." },
+        "shadow":        { "file": "Village pack/houses/Grey brick house/brick_houses_shadow.png", "load": "image", "width": 96, "height": 32, "description": "Grey brick house drop shadow." }
+      },
+      "small_house": {
+        "base":            { "file": "Village pack/houses/small house/small_House.png", "load": "image", "width": 192, "height": 192, "description": "Small house." },
+        "with_door":       { "file": "Village pack/houses/small house/small_House_with_door.png", "load": "image", "width": 192, "height": 192, "description": "Small house with door." },
+        "with_grass":      { "file": "Village pack/houses/small house/small_House_with_grass.png", "load": "image", "width": 192, "height": 192, "description": "Small house with grass." },
+        "with_door_grass": { "file": "Village pack/houses/small house/small_House_with_door_grass.png", "load": "image", "width": 192, "height": 192, "description": "Small house with door + grass." },
+        "light":            { "file": "Village pack/houses/small house/small_House_light.png", "load": "image", "width": 192, "height": 192, "description": "Small house, light color variant." },
+        "light_with_door":  { "file": "Village pack/houses/small house/small_House_light_with_door.png", "load": "image", "width": 192, "height": 192, "description": "Light small house with door." },
+        "light_with_grass": { "file": "Village pack/houses/small house/small_House_light_with_grass.png", "load": "image", "width": 192, "height": 192, "description": "Light small house with grass." },
+        "light_with_door_grass": { "file": "Village pack/houses/small house/small_House_light_with_door_grass.png", "load": "image", "width": 192, "height": 192, "description": "Light small house with door + grass." },
+        "shadow":          { "file": "Village pack/houses/small house/small_House_shadow.png", "load": "image", "width": 64, "height": 16, "description": "Small house drop shadow." }
+      },
+      "small_hut": {
+        "base":            { "file": "Village pack/houses/small hut/small_huts.png", "load": "image", "width": 192, "height": 192, "description": "Small huts (variants)." },
+        "with_doors":      { "file": "Village pack/houses/small hut/small_huts_with_doors.png", "load": "image", "width": 192, "height": 192, "description": "Small huts with doors." },
+        "with_grass":      { "file": "Village pack/houses/small hut/small_huts_with_grass.png", "load": "image", "width": 192, "height": 192, "description": "Small huts with grass." },
+        "with_doors_grass": { "file": "Village pack/houses/small hut/small_huts_with_doors_grass.png", "load": "image", "width": 192, "height": 192, "description": "Small huts with doors + grass." },
+        "shadow":          { "file": "Village pack/houses/small hut/small_hut_shadow.png", "load": "image", "width": 64, "height": 16, "description": "Small hut drop shadow." }
+      },
+      "wooden_door": {
+        "file": "Village pack/houses/wooden_door_spritesheet.png",
+        "load": "spritesheet",
+        "frameWidth": 48,
+        "frameHeight": 48,
+        "columns": 8,
+        "rows": 1,
+        "frameCount": 8,
+        "description": "Wooden door open/close animation (8 frames, 48x48).",
+        "animations": { "open": { "frames": [0,1,2,3,4,5,6,7], "frameRate": 12, "repeat": 0 } },
+        "$note": "48x48, 8 frames confirmed visually."
+      }
+    }
+  }
+}

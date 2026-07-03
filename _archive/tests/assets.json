@@ -1,0 +1,44 @@
+{
+  "$comment": "Phaser 3 asset index for the Sprout Lands 'Tests' folder (experimental / demo sprites by Cup Nooble). These are prototype character sheets used for testing. Paths relative to `basePath`. Frame sizes marked 'approximate' were inferred visually and should be confirmed against the accompanying .gif previews.",
+  "meta": {
+    "pack": "Sprout Lands - Tests (experimental)",
+    "author": "Cup Nooble",
+    "license": "Non-commercial. No NFT/AI use. Do not redistribute/resell. Credit required."
+  },
+  "config": {
+    "basePath": "assets/sprout/Tests",
+    "tileSize": 16
+  },
+  "characters": {
+    "free_character": {
+      "file": "free_character_spritesheet_by-cupnooble.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 8,
+      "rows": 6,
+      "frameCount": 48,
+      "description": "Free test character (brown/mole-style) walk sheet, 8 columns of animation frames across multiple rows.",
+      "$note": "Grid is 8 columns wide; frame HEIGHT is approximate (could be 16 or 24 if the sprite is taller than one tile) - verify against test .gif before committing animations."
+    },
+    "teemo_8_directions": {
+      "file": "teemo 8 directions.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 8,
+      "rows": 3,
+      "frameCount": 24,
+      "description": "8-direction character test ('Teemo'). 8 columns = 8 facing directions, 3 rows = animation frames per direction.",
+      "animations": {
+        "$note": "Column = direction (0..7), row = frame. Build a per-direction anim by taking frames [dir, dir+8, dir+16]."
+      },
+      "preview": "teemo 8 directions test.gif"
+    }
+  },
+  "previews": {
+    "$comment": "Animated GIF previews - reference only, not meant to be loaded as game textures (Phaser cannot play multi-frame GIFs natively).",
+    "teemo_8_directions_gif": { "file": "teemo 8 directions test.gif", "width": 800, "height": 608, "description": "Animated preview of the 8-direction Teemo test." },
+    "test_character_gif": { "file": "test character test .gif", "width": 432, "height": 400, "description": "Animated preview of a test character (no matching static PNG in this folder)." }
+  }
+}

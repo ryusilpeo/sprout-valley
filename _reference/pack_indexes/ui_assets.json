@@ -1,0 +1,248 @@
+{
+  "$comment": "Phaser 3 asset index for the Sprout Lands UI pack (by Cup Nooble). 16x16-based pixel-art UI: nine-slice dialog/button panels, icon grids, emojis, a pixel font, weather icons and mouse cursors. Paths relative to `basePath`. Frame sizes marked with a $note were inferred and should be confirmed in an editor.",
+  "meta": {
+    "pack": "Sprout Lands - UI (Free Basic)",
+    "author": "Cup Nooble",
+    "license": "Non-commercial (Free Basic). No NFT/AI use. Do not redistribute/resell. Buy Premium for commercial use.",
+    "sourcePack": "https://cupnooble.itch.io/sprout-lands-asset-pack"
+  },
+  "config": {
+    "basePath": "assets/sprout/UI",
+    "tileSize": 16,
+    "recommendedGameConfig": { "pixelArt": true, "roundPixels": true },
+    "nineSliceTip": "Panels below are 16px-tiled. For a 3x3 panel use Phaser's this.add.nineslice(x,y,key, frame, w, h, leftW, rightW, topH, bottomH) with 16px borders, or slice manually (see phaser-gamedev references/spritesheets-nineslice.md)."
+  },
+  "fonts": {
+    "pixelFont_sproutLands_ttf": {
+      "file": "fonts/pixelFont-7-8x14-sproutLands.ttf",
+      "type": "truetype",
+      "glyphSize": "8x14",
+      "description": "Sprout Lands pixel TrueType font. Load via CSS @font-face (or WebFontLoader) BEFORE creating the game, then use in this.add.text with fontFamily and disable antialias for crispness.",
+      "$note": "Phaser bitmap-text needs a .fnt; none ships here. Use this ttf as a web font for this.add.text, or generate a bitmap font from the PNG below."
+    },
+    "pixelLetters_png": {
+      "file": "fonts/pixel-letters-7-8x14.png",
+      "load": "image",
+      "width": 118,
+      "height": 106,
+      "glyphSize": "8x14",
+      "preview": "fonts/pixel-letters-7-8x14-preview.png",
+      "description": "The font rendered as a glyph atlas image (8x14 letters). Pair with a generated .fnt to use as a Phaser BitmapText."
+    }
+  },
+  "dialog": {
+    "$comment": "Speech/dialog boxes. 'dialog box.png' is a 3x3 nine-slice bubble (48x48, 16px tiles) with a tail. small/medium/big are pre-sized single panels. 'Premade' versions include a ready background.",
+    "dialog_box_nineslice": {
+      "file": "Sprite sheets/Dialouge UI/dialog box.png",
+      "load": "image",
+      "width": 48,
+      "height": 48,
+      "nineSlice": { "tileSize": 16, "grid": "3x3", "border": 16 },
+      "description": "Speech bubble panel (48x48). Use as a 16px-border nine-slice to scale to any size. Has a small tail on the lower-left."
+    },
+    "dialog_box_small":  { "file": "Sprite sheets/Dialouge UI/dialog box small.png", "load": "image", "width": 112, "height": 48, "description": "Pre-sized small dialog panel." },
+    "dialog_box_medium": { "file": "Sprite sheets/Dialouge UI/dialog box medium.png", "load": "image", "width": 128, "height": 48, "description": "Pre-sized medium dialog panel." },
+    "dialog_box_big":    { "file": "Sprite sheets/Dialouge UI/dialog box big.png", "load": "image", "width": 176, "height": 48, "description": "Pre-sized large dialog panel." },
+    "premade_dialog_small":  { "file": "Sprite sheets/Dialouge UI/Premade dialog box small.png", "load": "image", "width": 176, "height": 64, "description": "Ready-made small dialog box (with background)." },
+    "premade_dialog_medium": { "file": "Sprite sheets/Dialouge UI/Premade dialog box medium.png", "load": "image", "width": 240, "height": 64, "description": "Ready-made medium dialog box." },
+    "premade_dialog_big":    { "file": "Sprite sheets/Dialouge UI/Premade dialog box  big.png", "load": "image", "width": 304, "height": 64, "description": "Ready-made big dialog box." },
+    "talk_continue_indicator": {
+      "file": "Sprite sheets/Dialouge UI/dialog box character finished talking click to continue indicator - spritesheet .png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 7,
+      "rows": 1,
+      "frameCount": 7,
+      "description": "'Click to continue' blinking indicator shown when a character finishes talking.",
+      "animations": { "blink": { "frames": [0,1,2,3,4,5,6], "frameRate": 8, "repeat": -1 } }
+    },
+    "emotes_teemo": {
+      "file": "Sprite sheets/Dialouge UI/Emotes/Teemo Basic emote animations sprite sheet.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 10,
+      "rows": 30,
+      "frameCount": 300,
+      "description": "Over-head emote animations (each row is one emote's frames).",
+      "$note": "16px grid assumed (10x30). Each row = one animated emote; identify loops per row before use."
+    }
+  },
+  "buttons": {
+    "small_square": {
+      "file": "Sprite sheets/buttons/Small Square Buttons.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 2,
+      "rows": 8,
+      "frameCount": 16,
+      "description": "Small square buttons: 2 color styles (columns) x 8 states/icons (rows), 16x16 each."
+    },
+    "square_19x26": { "file": "Sprite sheets/buttons/Square Buttons 19x26.png", "load": "spritesheet", "width": 128, "height": 96, "frameWidth": 32, "frameHeight": 32, "columns": 4, "rows": 3, "description": "Portrait buttons (~19x26 art). Sheet holds up/pressed states + variants.", "$note": "Frame grid approximate; the '19x26' in the name is the button ART size inside a padded cell. Verify cell size (candidates 32x32 or 32x24)." },
+    "square_26x19": { "file": "Sprite sheets/buttons/Square Buttons 26x19.png", "load": "spritesheet", "width": 96, "height": 128, "frameWidth": 32, "frameHeight": 32, "columns": 3, "rows": 4, "description": "Landscape buttons (~26x19 art).", "$note": "Frame grid approximate; verify cell size." },
+    "square_26x26": { "file": "Sprite sheets/buttons/Square Buttons 26x26.png", "load": "spritesheet", "width": 96, "height": 192, "frameWidth": 32, "frameHeight": 32, "columns": 3, "rows": 6, "description": "Square buttons (~26x26 art).", "$note": "Frame grid approximate; verify cell size." },
+    "big_play_button": { "file": "Sprite sheets/UI Big Play Button.png", "load": "spritesheet", "width": 192, "height": 64, "frameWidth": 96, "frameHeight": 64, "columns": 2, "rows": 1, "description": "Large Play button, up + pressed states.", "$note": "Assumed 2 states of 96x64; could be 3x64. Verify." },
+    "settings_buttons": { "file": "Sprite sheets/UI Settings Buttons.png", "load": "spritesheet", "tileWidth": 16, "tileHeight": 16, "columns": 8, "rows": 15, "frameCount": 120, "description": "Settings menu buttons/toggles (sliders, checkboxes, icon buttons).", "$note": "16px grid assumed (8x15). Some controls span multiple tiles." }
+  },
+  "icons": {
+    "all_icons": {
+      "file": "Sprite sheets/Icons/All Icons.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 18,
+      "rows": 3,
+      "frameCount": 54,
+      "description": "Master icon set (16x16): numbers, symbols, hearts, coins, stars, tools, arrows, checks/crosses, etc."
+    },
+    "white_icons": {
+      "file": "Sprite sheets/Icons/white icons.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 6,
+      "rows": 3,
+      "frameCount": 18,
+      "description": "White (monochrome) icon variants, 16x16."
+    },
+    "special_icons": {
+      "file": "Sprite sheets/Icons/special icons/Special Icons.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 7,
+      "rows": 4,
+      "frameCount": 28,
+      "description": "Special icons (16x16)."
+    },
+    "happiness_sadness": {
+      "file": "Sprite sheets/Icons/special icons/Small Happines-Sadness icons.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 6,
+      "rows": 2,
+      "frameCount": 12,
+      "description": "Small mood/reaction icons (happiness–sadness scale)."
+    }
+  },
+  "emojis": {
+    "emoji_spritesheet": {
+      "file": "emojis-free/Emoji_Spritesheet_Free.png",
+      "load": "spritesheet",
+      "frameWidth": 16,
+      "frameHeight": 16,
+      "columns": 10,
+      "rows": 38,
+      "frameCount": 380,
+      "description": "Free emoji set, 16x16 each (10 columns x 38 rows)."
+    },
+    "speech_bubble_grey": {
+      "file": "emojis-free/speech_bubble_grey.png",
+      "load": "spritesheet",
+      "width": 448,
+      "height": 192,
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 28,
+      "rows": 12,
+      "description": "Grey speech-bubble frames / emote backgrounds.",
+      "$note": "16px grid assumed; may be a set of nine-sliceable bubbles - inspect groupings before use."
+    }
+  },
+  "inventory": {
+    "$comment": "'emoji style ui' inventory system. *_Spritesheet files are the reusable building blocks; *_example* files are pre-composed reference screenshots (load as image if you want the ready-made look).",
+    "inventory_blocks": {
+      "file": "emojis-free/emoji style ui/Inventory_Blocks_Spritesheet.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 9,
+      "rows": 9,
+      "frameCount": 81,
+      "description": "Inventory slot / panel building blocks (borders, corners, slot fills) for nine-slicing inventory grids.",
+      "$note": "16px grid assumed; these tile together into inventory panels."
+    },
+    "inventory_full": {
+      "file": "emojis-free/emoji style ui/Inventory_Spritesheet.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 23,
+      "rows": 21,
+      "frameCount": 483,
+      "description": "Full inventory UI atlas (dark theme).",
+      "$note": "16px grid assumed (368x336)."
+    },
+    "hearts": {
+      "file": "emojis-free/emoji style ui/Inventory_Herat_Spritesheet.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 7,
+      "rows": 21,
+      "frameCount": 147,
+      "description": "Heart / health bar states + fill animation (dark theme)."
+    },
+    "hearts_light": {
+      "file": "emojis-free/emoji style ui/Inventory_Light_Herat_Spritesheet.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 7,
+      "rows": 21,
+      "frameCount": 147,
+      "description": "Heart / health states (light theme)."
+    },
+    "examples": {
+      "$comment": "Pre-composed layout examples (reference / drop-in images).",
+      "dark":  {
+        "inventory_example":            { "file": "emojis-free/emoji style ui/inventory_example.png", "load": "image", "width": 352, "height": 96 },
+        "inventory_example_2":          { "file": "emojis-free/emoji style ui/inventory_example_2.png", "load": "image", "width": 304, "height": 96 },
+        "inventory_example_with_slots": { "file": "emojis-free/emoji style ui/inventory_example_with_slots.png", "load": "image", "width": 352, "height": 96 },
+        "inventory_example_with_slots_2": { "file": "emojis-free/emoji style ui/inventory_example_with_slots_2.png", "load": "image", "width": 304, "height": 96 }
+      },
+      "light": {
+        "inventory_Light_example":            { "file": "emojis-free/emoji style ui/inventory_Light_example.png", "load": "image", "width": 352, "height": 96 },
+        "inventory_Light_example_2":          { "file": "emojis-free/emoji style ui/inventory_Light_example_2.png", "load": "image", "width": 304, "height": 96 },
+        "inventory_Light_example_with_slots": { "file": "emojis-free/emoji style ui/inventory_Light_example_with_slots.png", "load": "image", "width": 352, "height": 96 },
+        "inventory_Light_example_with_slots_2": { "file": "emojis-free/emoji style ui/Inventory_Light_example_with_slots_2.png", "load": "image", "width": 304, "height": 96 }
+      }
+    }
+  },
+  "weather": {
+    "weather_icons_small": { "file": "emojis-free/emoji style ui/weather/Weather_Icons_smal_freel.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 4, "rows": 6, "frameCount": 24, "description": "Small weather icons (sun, rain, cloud, etc.)." },
+    "weather_ui":          { "file": "emojis-free/emoji style ui/weather/Weather_UI_Free.png", "load": "spritesheet", "frameWidth": 16, "frameHeight": 16, "columns": 5, "rows": 7, "frameCount": 35, "description": "Weather UI widget elements." }
+  },
+  "cursors": {
+    "$comment": "16x16 mouse cursor sprites. Load as images; set as HTML cursor or draw a follower sprite.",
+    "catpaw":          { "file": "Sprite sheets/Mouse sprites/Catpaw Mouse icon.png", "load": "image", "width": 16, "height": 16, "description": "Cat-paw cursor (idle)." },
+    "catpaw_pointing": { "file": "Sprite sheets/Mouse sprites/Catpaw pointing Mouse icon.png", "load": "image", "width": 16, "height": 16, "description": "Cat-paw cursor (pointing)." },
+    "catpaw_holding":  { "file": "Sprite sheets/Mouse sprites/Catpaw holding Mouse icon.png", "load": "image", "width": 16, "height": 16, "description": "Cat-paw cursor (holding/grab)." },
+    "triangle_1":      { "file": "Sprite sheets/Mouse sprites/Triangle Mouse icon 1.png", "load": "image", "width": 16, "height": 16, "description": "Classic triangle pointer variant 1." },
+    "triangle_2":      { "file": "Sprite sheets/Mouse sprites/Triangle Mouse icon 2.png", "load": "image", "width": 16, "height": 16, "description": "Triangle pointer variant 2." },
+    "triangle_3":      { "file": "Sprite sheets/Mouse sprites/Triangle Mouse icon 3.png", "load": "image", "width": 16, "height": 16, "description": "Triangle pointer variant 3." }
+  },
+  "misc": {
+    "setting_menu": {
+      "file": "Sprite sheets/Setting menu.png",
+      "load": "image",
+      "width": 256,
+      "height": 144,
+      "description": "Pre-composed settings menu panel (ready-made background)."
+    },
+    "basic_pack_ui_atlas": {
+      "file": "Sprite sheets/Sprite sheet for Basic Pack.png",
+      "load": "spritesheet",
+      "tileWidth": 16,
+      "tileHeight": 16,
+      "columns": 56,
+      "rows": 15,
+      "frameCount": 840,
+      "description": "Master UI atlas combining many UI elements from this pack (896x240).",
+      "$note": "16px grid assumed; a catch-all sheet - prefer the individual sheets above where possible."
+    }
+  }
+}

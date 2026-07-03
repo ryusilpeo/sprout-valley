@@ -1,0 +1,50 @@
+{
+  "$comment": "Phaser 3 audio index for the Sprout Lands Audio pack (by Cup Nooble). All files are 16-bit WAV. Load with this.load.audio(key, path). Paths are relative to `basePath`.",
+  "meta": {
+    "pack": "Sprout Lands - Audio",
+    "author": "Cup Nooble",
+    "credit": "Assets -From: Sprout Lands -By: Cup Nooble",
+    "license": "Non-commercial. No NFT/AI use. Do not redistribute/resell. Credit required."
+  },
+  "config": {
+    "basePath": "assets/sprout/Audio",
+    "loader": "this.load.audio(key, path)",
+    "$note": "For best browser compatibility consider transcoding these WAVs to .ogg/.mp3 and providing both to this.load.audio(key, [ogg, mp3]). WAV works but is uncompressed/larger."
+  },
+  "sfx": {
+    "bing_1":          { "file": "bing_1.wav", "format": "wav", "group": "bing", "description": "UI/confirm bell 'bing'." },
+    "bip_1":           { "file": "bip_1.wav", "format": "wav", "group": "bip", "description": "Short UI blip." },
+    "blup_1":          { "file": "blup_1.wav", "format": "wav", "group": "blup", "description": "Water/bubble 'blup' A." },
+    "blup_2":          { "file": "blup_2.wav", "format": "wav", "group": "blup", "description": "Water/bubble 'blup' B." },
+    "boo_1":           { "file": "boo_1.wav", "format": "wav", "group": "boo", "description": "Negative/deny 'boo' A." },
+    "boo_2":           { "file": "boo_2.wav", "format": "wav", "group": "boo", "description": "Negative/deny 'boo' B." },
+    "flute_1":         { "file": "flute_1.wav", "format": "wav", "group": "flute", "description": "Flute note 1 (pickup/positive cue)." },
+    "flute_2":         { "file": "flute_2.wav", "format": "wav", "group": "flute", "description": "Flute note 2." },
+    "flute_3":         { "file": "flute_3.wav", "format": "wav", "group": "flute", "description": "Flute note 3." },
+    "flute_4":         { "file": "flute_4.wav", "format": "wav", "group": "flute", "description": "Flute note 4." },
+    "phone_1":         { "file": "phone_1.wav", "format": "wav", "group": "phone", "longer": true, "description": "Phone/ringtone jingle A (longer clip)." },
+    "phone_2":         { "file": "phone_2.wav", "format": "wav", "group": "phone", "longer": true, "description": "Phone/ringtone jingle B (longer clip)." },
+    "punch_1":         { "file": "punch_1.wav", "format": "wav", "group": "punch", "description": "Hit/impact 'punch' variant 1." },
+    "punch_2":         { "file": "punch_2.wav", "format": "wav", "group": "punch", "description": "Hit/impact 'punch' variant 2." },
+    "punch_3":         { "file": "punch_3.wav", "format": "wav", "group": "punch", "description": "Hit/impact 'punch' variant 3." },
+    "punch_4":         { "file": "punch_4.wav", "format": "wav", "group": "punch", "description": "Hit/impact 'punch' variant 4." },
+    "punch_5":         { "file": "punch_5.wav", "format": "wav", "group": "punch", "description": "Hit/impact 'punch' variant 5." },
+    "punch_6":         { "file": "punch_6.wav", "format": "wav", "group": "punch", "description": "Hit/impact 'punch' variant 6." },
+    "squick_1":        { "file": "squick_1.wav", "format": "wav", "group": "squick", "description": "Squishy 'squick' A (footstep/mud)." },
+    "squick_2":        { "file": "squick_2.wav", "format": "wav", "group": "squick", "description": "Squishy 'squick' B." },
+    "squick_squick_1": { "file": "squick_squick_1.wav", "format": "wav", "group": "squick_squick", "description": "Double squish A." },
+    "squick_squick_2": { "file": "squick_squick_2.wav", "format": "wav", "group": "squick_squick", "description": "Double squish B." }
+  },
+  "groups": {
+    "bing": ["bing_1"],
+    "bip": ["bip_1"],
+    "blup": ["blup_1", "blup_2"],
+    "boo": ["boo_1", "boo_2"],
+    "flute": ["flute_1", "flute_2", "flute_3", "flute_4"],
+    "phone": ["phone_1", "phone_2"],
+    "punch": ["punch_1", "punch_2", "punch_3", "punch_4", "punch_5", "punch_6"],
+    "squick": ["squick_1", "squick_2"],
+    "squick_squick": ["squick_squick_1", "squick_squick_2"],
+    "$note": "Grouped variants let you randomize a category (e.g. pick a random 'punch' on each hit)."
+  }
+}
