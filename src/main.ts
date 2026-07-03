@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import BootScene from './scenes/BootScene';
+import MapScene from './scenes/MapScene';
 import { VIEW } from './core/constants';
 
 new Phaser.Game({
@@ -8,6 +9,7 @@ new Phaser.Game({
   width: VIEW.width,
   height: VIEW.height,
   backgroundColor: '#a6d9c8',
-  pixelArt: true, // crisp 16px art: nearest-neighbour scaling, no antialiasing
-  scene: [BootScene],
+  pixelArt: true,
+  physics: { default: 'arcade', arcade: { debug: false } },
+  scene: [BootScene, MapScene],
 });

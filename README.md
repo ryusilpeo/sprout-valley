@@ -30,7 +30,7 @@ docs/plan.md      the full fresh-start plan and file mapping
 ## Phase tracker
 
 - [x] **0 — Foundation**: scaffold, reorganized assets, pipeline proven
-- [ ] **1 — Tiled pipeline**: tilesets defined, first hand-built farm map loads
+- [x] **1 — Tiled pipeline**: tilesets + Wang autotiling, farm map loads with animated water & object collision (see `docs/phase1-tiled.md`)
 - [ ] **2 — Player**: 4-dir walk, actions, collision, camera
 - [ ] **3 — HUD**: nine-slice panels, hearts, coins, mission, hotbar
 - [ ] **4 — Farming**: hoe / water / plant / grow / harvest
