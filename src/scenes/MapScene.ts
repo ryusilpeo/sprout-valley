@@ -1,17 +1,20 @@
 import Phaser from 'phaser';
 import { ASSETS, TILE, ZOOM } from '../core/constants';
+import Player from '../entities/Player';
 
 /**
- * Phase 1 — loads the hand-built Tiled map (exported to JSON), renders its
- * tile layers, animates the water, and turns the "collision" object layer into
- * static physics bodies. A placeholder marker stands in for the player until
- * Phase 2; the camera centres on the map's player_spawn.
+ * Loads the hand-built Tiled map (exported to JSON), renders its tile layers,
+ * animates the water, turns the "collision" object layer into static physics
+ * bodies, and spawns the player at the map's player_spawn with the camera
+ * following.
  *
  * Pipeline reminder: edit tiled/maps/farm.tmx in Tiled, then run
  *   python3 tiled/tmx_to_json.py tiled/maps/farm.tmx
  * to refresh public/assets/maps/farm.json that this scene loads.
  */
 export default class MapScene extends Phaser.Scene {
+  private player!: Player;
+
   constructor() {
     super({ key: 'Map' });
   }
@@ -36,9 +39,13 @@ export default class MapScene extends Phaser.Scene {
     map.createLayer('farm', sets, 0, 0)!;
 
     this.animateWater(map, ground);
-    this.buildCollision(map);
+    const statics = this.buildCollision(map);
+    this.spawnPlayer(map, statics);
     this.setupCamera(map);
-    this.placePlayerMarker(map);
+  }
+
+  update(): void {
+    this.player.update();
   }
 
   /**
@@ -65,10 +72,10 @@ export default class MapScene extends Phaser.Scene {
   }
 
   /** Turn the "collision" object rectangles into static bodies. */
-  private buildCollision(map: Phaser.Tilemaps.Tilemap): void {
-    const objs = map.getObjectLayer('collision');
-    if (!objs) return;
+  private buildCollision(map: Phaser.Tilemaps.Tilemap): Phaser.Physics.Arcade.StaticGroup {
     const statics = this.physics.add.staticGroup();
+    const objs = map.getObjectLayer('collision');
+    if (!objs) return statics;
     for (const o of objs.objects) {
       if (o.width && o.height) {
         const body = this.add.rectangle(
@@ -80,15 +87,21 @@ export default class MapScene extends Phaser.Scene {
         statics.add(body);
       }
     }
-    this.registry.set('collision', statics);
+    return statics;
+  }
+
+  private spawnPlayer(map: Phaser.Tilemaps.Tilemap, statics: Phaser.Physics.Arcade.StaticGroup): void {
+    const s = this.spawnPoint(map);
+    this.player = new Player(this, s.x, s.y);
+    this.player.setDepth(100);
+    this.physics.add.collider(this.player, statics);
   }
 
   private setupCamera(map: Phaser.Tilemaps.Tilemap): void {
     const cam = this.cameras.main;
     cam.setZoom(ZOOM);
     cam.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-    const spawn = this.spawnPoint(map);
-    cam.centerOn(spawn.x, spawn.y);
+    cam.startFollow(this.player, true, 0.15, 0.15);
   }
 
   private spawnPoint(map: Phaser.Tilemaps.Tilemap): { x: number; y: number } {
@@ -96,11 +109,5 @@ export default class MapScene extends Phaser.Scene {
     const p = spawns?.objects.find((o) => o.name === 'player_spawn');
     if (p) return { x: (p.x ?? 0) + TILE / 2, y: (p.y ?? 0) + TILE / 2 };
     return { x: map.widthInPixels / 2, y: map.heightInPixels / 2 };
-  }
-
-  /** Temporary stand-in for the player (Phase 2 replaces this). */
-  private placePlayerMarker(map: Phaser.Tilemaps.Tilemap): void {
-    const s = this.spawnPoint(map);
-    this.add.image(s.x, s.y, 'player_marker').setDepth(100);
   }
 }

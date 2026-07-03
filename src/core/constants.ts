@@ -11,3 +11,6 @@ export const VIEW = { width: 600, height: 600 } as const;
 
 /** Root of all runtime assets (see public/assets/manifest.json for origins). */
 export const ASSETS = 'assets';
+
+/** Player walk speed in world px/s (16px tiles — 5 tiles/s reads right at 3x zoom). */
+export const PLAYER_SPEED = 80;
